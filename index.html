@@ -193,29 +193,31 @@
       /* ── Event Cards ── */
       .events-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 28px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 36px;
       }
 
       .event-card {
         background: #fff;
         border: 1px solid var(--light-border);
-        border-radius: 4px;
+        border-radius: 6px;
         overflow: hidden;
         transition:
           box-shadow 0.25s,
           transform 0.25s;
+        display: flex;
+        flex-direction: column;
       }
 
       .event-card:hover {
-        box-shadow: 0 8px 32px rgba(66, 55, 46, 0.18);
-        transform: translateY(-3px);
+        box-shadow: 0 10px 40px rgba(66, 55, 46, 0.2);
+        transform: translateY(-4px);
       }
 
       .event-card-top {
         background: linear-gradient(135deg, var(--navy), var(--navy-dark));
         color: #fff;
-        padding: 28px 24px 22px;
+        padding: 36px 32px 28px;
         position: relative;
       }
 
@@ -224,34 +226,38 @@
         background: var(--gold);
         color: var(--dark);
         font-family: arial, sans-serif;
-        font-size: 0.72rem;
+        font-size: 0.8rem;
         font-weight: 700;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        padding: 4px 12px;
+        padding: 6px 16px;
         border-radius: 2px;
-        margin-bottom: 14px;
+        margin-bottom: 18px;
       }
 
       .event-card-top h3 {
-        font-size: 1.25rem;
+        font-size: 1.6rem;
         font-weight: 400;
-        margin-bottom: 6px;
+        margin-bottom: 10px;
+        line-height: 1.3;
       }
 
       .event-card-top .venue {
         font-family: arial, sans-serif;
-        font-size: 0.82rem;
-        color: rgba(255, 255, 255, 0.7);
-        letter-spacing: 0.05em;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: 0.04em;
       }
 
       .event-card-body {
-        padding: 22px 24px 28px;
+        padding: 28px 32px 36px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
       }
 
       .event-card-body p {
-        font-size: 0.93rem;
+        font-size: 0.95rem;
         color: var(--muted);
         margin-bottom: 20px;
         line-height: 1.75;
@@ -259,24 +265,25 @@
 
       .event-details {
         list-style: none;
-        margin-bottom: 24px;
+        margin-bottom: 28px;
       }
 
       .event-details li {
         display: flex;
         align-items: flex-start;
-        gap: 10px;
+        gap: 12px;
         font-family: arial, sans-serif;
-        font-size: 0.82rem;
-        color: var(--muted);
-        margin-bottom: 8px;
+        font-size: 0.92rem;
+        color: var(--dark);
+        margin-bottom: 12px;
+        line-height: 1.5;
       }
 
       .event-details li::before {
         content: "◆";
         color: var(--gold);
         font-size: 0.6rem;
-        margin-top: 4px;
+        margin-top: 5px;
         flex-shrink: 0;
       }
 
@@ -285,12 +292,12 @@
         background: var(--navy);
         color: #fff;
         font-family: arial, sans-serif;
-        font-size: 0.78rem;
+        font-size: 0.82rem;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         text-decoration: none;
-        padding: 11px 24px;
+        padding: 14px 28px;
         border-radius: 2px;
         transition: background 0.2s;
       }
@@ -298,6 +305,96 @@
       .btn-reserve:hover {
         background: var(--gold);
         color: var(--dark);
+      }
+
+      .seats-badge {
+        display: inline-block;
+        font-family: arial, sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: var(--gold);
+        background: rgba(197, 154, 59, 0.12);
+        border: 1px solid rgba(197, 154, 59, 0.35);
+        padding: 3px 10px;
+        border-radius: 2px;
+        margin-bottom: 18px;
+        display: block;
+        width: fit-content;
+      }
+
+      .event-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 4px;
+      }
+
+      .btn-details {
+        font-family: arial, sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--navy);
+        border: 2px solid var(--navy);
+        background: transparent;
+        padding: 9px 20px;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .btn-details:hover {
+        background: var(--navy);
+        color: #fff;
+      }
+
+      details.curriculum {
+        margin-top: 20px;
+        border-top: 1px solid var(--light-border);
+        padding-top: 18px;
+      }
+
+      details.curriculum summary {
+        display: none;
+      }
+
+      details.curriculum[open] {
+        display: block;
+      }
+
+      .curriculum-intro {
+        font-family: arial, sans-serif;
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 16px;
+        line-height: 1.7;
+      }
+
+      .curriculum-topics {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .curriculum-topics li {
+        font-family: arial, sans-serif;
+        font-size: 0.82rem;
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      .curriculum-topics li strong {
+        display: block;
+        color: var(--navy);
+        font-size: 0.83rem;
+      }
+
+      .curriculum-topics li::before {
+        content: none;
       }
 
       /* ── What to Expect ── */
@@ -504,6 +601,19 @@
         }
         .events-grid {
           grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .event-card-top {
+          padding: 28px 24px 22px;
+        }
+
+        .event-card-top h3 {
+          font-size: 1.3rem;
+        }
+
+        .event-card-body {
+          padding: 22px 24px 28px;
         }
         .expect-grid {
           grid-template-columns: 1fr 1fr;
@@ -544,89 +654,127 @@
     <!-- Upcoming Events -->
     <section id="events">
       <p class="section-label">On the Calendar</p>
-      <h2 class="section-heading">Upcoming Wine &amp; Wills Events</h2>
+      <h2 class="section-heading">Free Estate Planning Seminars</h2>
       <p class="section-intro">
-        Seats are limited to keep each event personal. Reserve yours early.
+        Secure your legacy — pick a location and time. We'll save your seat and
+        email a confirmation.
       </p>
 
       <div class="events-grid">
+
+        <!-- Event 1: Altisima Winery -->
         <div class="event-card">
           <div class="event-card-top">
-            <span class="event-date-badge">July 12, 2026 · 5:00 PM</span>
-            <h3>Summer Estate Planning Evening</h3>
-            <span class="venue">Leonesse Cellars — Temecula, CA</span>
+            <span class="event-date-badge">Sat, June 20 · 11:15 AM – 1:00 PM</span>
+            <h3>Altisima Winery</h3>
+            <span class="venue">Temecula · Altisima Winery</span>
           </div>
           <div class="event-card-body">
-            <p>
-              Relax on the terrace with a curated flight of Leonesse wines while
-              our attorneys walk you through the essentials of wills, trusts,
-              and beneficiary designations.
-            </p>
+            <span class="seats-badge">Seats left: 10</span>
             <ul class="event-details">
-              <li>Complimentary wine flight included</li>
+              <li>Free admission — no obligation</li>
+              <li>Complimentary wine tasting included</li>
               <li>Live Q&amp;A with DeCosimo Law attorneys</li>
-              <li>Workbook &amp; estate planning checklist</li>
-              <li>Limited to 20 guests</li>
+              <li>Estate planning workbook &amp; checklist</li>
+              <li>Free chat with Deanna after the event</li>
+              <li>Want to go deeper? Schedule a next step with Deanna to discuss your family's specific situation</li>
             </ul>
-            <a
-              href="mailto:support@decosimolaw.com?subject=Reserve%20-%20July%2012%20Wine%20%26%20Wills"
-              class="btn-reserve"
-              >Reserve My Seat</a
-            >
+            <div class="event-actions">
+              <a
+                href="mailto:support@decosimolaw.com?subject=Register%20-%20June%2020%20Altisima%20Winery%20Estate%20Planning%20Seminar"
+                class="btn-reserve"
+                >Register</a
+              >
+              <button
+                class="btn-details"
+                onclick="this.closest('.event-card-body').querySelector('details').toggleAttribute('open'); this.textContent = this.closest('.event-card-body').querySelector('details').hasAttribute('open') ? 'Hide Details' : 'Details';"
+                >Details</button
+              >
+            </div>
+            <details class="curriculum">
+              <summary></summary>
+              <p class="curriculum-intro">
+                During this educational workshop, you will gain a clear,
+                practical understanding of how a well-designed estate plan
+                protects you, your family, your business, and everything you
+                have worked hard to build.
+              </p>
+              <ul class="curriculum-topics">
+                <li><strong>What Estate Planning Really Is</strong>Why planning is more than documents — it is a comprehensive strategy to protect loved ones, keep you in control, and minimize stress, conflict, and cost.</li>
+                <li><strong>Core Documents Every Plan Should Include</strong>Revocable Living Trusts, Wills, Powers of Attorney, Advance Health Care Directives, HIPAA authorizations, and more.</li>
+                <li><strong>Wills, Probate, and How They Work in California</strong>What a will actually does, how probate works, how long it takes, and why it is expensive, public, and avoidable.</li>
+                <li><strong>Why a Will Alone May Not Be Enough</strong>Drawbacks of relying solely on a will — especially for homeowners, blended families, and privacy-minded clients.</li>
+                <li><strong>Benefits of a Revocable Living Trust</strong>How trusts avoid probate, keep affairs private, protect beneficiaries, and maintain continuity if you become incapacitated.</li>
+                <li><strong>Protecting Your Loved Ones</strong>Strategies to shield beneficiaries from divorce, creditors, lawsuits, and poor financial decisions while supporting generational wealth.</li>
+                <li><strong>Kids Protection Plan®</strong>How to make sure minor children are cared for by the people you choose, in the way you want, without court delays or unwanted guardians.</li>
+                <li><strong>Protecting Your Pets</strong>Pet caregiver nominations, financial provisions, and Pet Trust options that guarantee long-term safety and well-being.</li>
+                <li><strong>Planning for Small Business Owners</strong>Protecting business assets, ensuring continuity, avoiding operational disruption, and handling succession.</li>
+                <li><strong>Community Property vs. Separate Property in California</strong>How proper asset characterization impacts inheritance, taxes, and distributions — especially for blended families.</li>
+                <li><strong>Powers of Attorney &amp; Health Care Directives</strong>Who steps in if you cannot make decisions, what authority they have, and how to ensure your wishes are honored.</li>
+                <li><strong>Estate Taxes</strong>An overview of the current federal and California landscape plus strategies to reduce or avoid estate taxes across generations.</li>
+                <li><strong>Trust Funding</strong>How to title assets and update beneficiary designations so the plan actually works when your family needs it.</li>
+                <li><strong>How Our Planning Process Works</strong>What DeCosimo Law's Life &amp; Legacy Planning experience looks like and how it differs from traditional, document-only law firms.</li>
+              </ul>
+            </details>
           </div>
         </div>
 
+        <!-- Event 2: Old Town Meeting Room Murrieta -->
         <div class="event-card">
           <div class="event-card-top">
-            <span class="event-date-badge">August 23, 2026 · 5:30 PM</span>
-            <h3>Harvest Season Wills Workshop</h3>
-            <span class="venue">Ponte Winery — Temecula, CA</span>
+            <span class="event-date-badge">Wed, June 24 · 6:00 – 7:30 PM</span>
+            <h3>Old Town Meeting Room Murrieta</h3>
+            <span class="venue">24641 Washington Ave, Murrieta, CA 92562</span>
           </div>
           <div class="event-card-body">
-            <p>
-              Celebrate harvest season while gaining clarity on protecting your
-              loved ones. This session focuses on living trusts and pour-over
-              wills for California families.
-            </p>
+            <span class="seats-badge">Seats left: 8</span>
             <ul class="event-details">
-              <li>Paired appetizers &amp; wine tasting</li>
-              <li>Focus: Living Trusts &amp; Probate Avoidance</li>
-              <li>Spouse / partner welcome</li>
-              <li>Limited to 20 guests</li>
+              <li>Free admission — no obligation</li>
+              <li>Live Q&amp;A with DeCosimo Law attorneys</li>
+              <li>Estate planning workbook &amp; checklist</li>
+              <li>Free chat with Deanna after the event</li>
+              <li>Want to go deeper? Schedule a next step with Deanna to discuss your family's specific situation</li>
             </ul>
-            <a
-              href="mailto:support@decosimolaw.com?subject=Reserve%20-%20August%2023%20Wine%20%26%20Wills"
-              class="btn-reserve"
-              >Reserve My Seat</a
-            >
+            <div class="event-actions">
+              <a
+                href="mailto:support@decosimolaw.com?subject=Register%20-%20June%2024%20Murrieta%20Estate%20Planning%20Seminar"
+                class="btn-reserve"
+                >Register</a
+              >
+              <button
+                class="btn-details"
+                onclick="this.closest('.event-card-body').querySelector('details').toggleAttribute('open'); this.textContent = this.closest('.event-card-body').querySelector('details').hasAttribute('open') ? 'Hide Details' : 'Details';"
+                >Details</button
+              >
+            </div>
+            <details class="curriculum">
+              <summary></summary>
+              <p class="curriculum-intro">
+                During this educational workshop, you will gain a clear,
+                practical understanding of how a well-designed estate plan
+                protects you, your family, your business, and everything you
+                have worked hard to build.
+              </p>
+              <ul class="curriculum-topics">
+                <li><strong>What Estate Planning Really Is</strong>Why planning is more than documents — it is a comprehensive strategy to protect loved ones, keep you in control, and minimize stress, conflict, and cost.</li>
+                <li><strong>Core Documents Every Plan Should Include</strong>Revocable Living Trusts, Wills, Powers of Attorney, Advance Health Care Directives, HIPAA authorizations, and more.</li>
+                <li><strong>Wills, Probate, and How They Work in California</strong>What a will actually does, how probate works, how long it takes, and why it is expensive, public, and avoidable.</li>
+                <li><strong>Why a Will Alone May Not Be Enough</strong>Drawbacks of relying solely on a will — especially for homeowners, blended families, and privacy-minded clients.</li>
+                <li><strong>Benefits of a Revocable Living Trust</strong>How trusts avoid probate, keep affairs private, protect beneficiaries, and maintain continuity if you become incapacitated.</li>
+                <li><strong>Protecting Your Loved Ones</strong>Strategies to shield beneficiaries from divorce, creditors, lawsuits, and poor financial decisions while supporting generational wealth.</li>
+                <li><strong>Kids Protection Plan®</strong>How to make sure minor children are cared for by the people you choose, in the way you want, without court delays or unwanted guardians.</li>
+                <li><strong>Protecting Your Pets</strong>Pet caregiver nominations, financial provisions, and Pet Trust options that guarantee long-term safety and well-being.</li>
+                <li><strong>Planning for Small Business Owners</strong>Protecting business assets, ensuring continuity, avoiding operational disruption, and handling succession.</li>
+                <li><strong>Community Property vs. Separate Property in California</strong>How proper asset characterization impacts inheritance, taxes, and distributions — especially for blended families.</li>
+                <li><strong>Powers of Attorney &amp; Health Care Directives</strong>Who steps in if you cannot make decisions, what authority they have, and how to ensure your wishes are honored.</li>
+                <li><strong>Estate Taxes</strong>An overview of the current federal and California landscape plus strategies to reduce or avoid estate taxes across generations.</li>
+                <li><strong>Trust Funding</strong>How to title assets and update beneficiary designations so the plan actually works when your family needs it.</li>
+                <li><strong>How Our Planning Process Works</strong>What DeCosimo Law's Life &amp; Legacy Planning experience looks like and how it differs from traditional, document-only law firms.</li>
+              </ul>
+            </details>
           </div>
         </div>
 
-        <div class="event-card">
-          <div class="event-card-top">
-            <span class="event-date-badge">September 19, 2026 · 5:00 PM</span>
-            <h3>Fall Family Wealth Evening</h3>
-            <span class="venue">South Coast Winery — Temecula, CA</span>
-          </div>
-          <div class="event-card-body">
-            <p>
-              An evening dedicated to multigenerational wealth planning — from
-              guardian designations for young families to advanced healthcare
-              directives for every stage of life.
-            </p>
-            <ul class="event-details">
-              <li>Estate wine tasting &amp; light bites</li>
-              <li>Focus: Guardianship &amp; Healthcare Directives</li>
-              <li>Take-home action plan included</li>
-              <li>Limited to 20 guests</li>
-            </ul>
-            <a
-              href="mailto:support@decosimolaw.com?subject=Reserve%20-%20September%2019%20Wine%20%26%20Wills"
-              class="btn-reserve"
-              >Reserve My Seat</a
-            >
-          </div>
-        </div>
       </div>
     </section>
 
@@ -643,15 +791,15 @@
         <div class="expect-grid">
           <div class="expect-item">
             <span class="expect-icon">🍷</span>
-            <h4>Curated Wine Tasting</h4>
+            <h4>Wine Tasting at Altisima</h4>
             <p>
-              Enjoy a hand-selected flight from one of Temecula Valley's premier
-              wineries, included with your reservation.
+              The Altisima Winery event includes a complimentary wine tasting.
+              All events include light refreshments.
             </p>
           </div>
           <div class="expect-item">
             <span class="expect-icon">⚖️</span>
-            <h4>Expert Legal Guidance</h4>
+            <h4>Legal Guidance</h4>
             <p>
               DeCosimo Law attorneys present estate planning fundamentals in
               plain language — no legalese, no sales pitch.
@@ -669,8 +817,9 @@
             <span class="expect-icon">📋</span>
             <h4>Take-Home Resources</h4>
             <p>
-              Leave with a personalized estate planning checklist and optional
-              complimentary 30-minute follow-up consultation.
+              Leave with a personalized estate planning checklist. Chat with
+              Deanna after the event, or schedule a next step to discuss your
+              family's specific situation.
             </p>
           </div>
         </div>
@@ -696,9 +845,9 @@
         <div class="faq-item">
           <h4>Is there a cost to attend?</h4>
           <p>
-            There is no charge to attend. Complimentary wine and light
-            refreshments are provided as our guests. There is no obligation to
-            retain our firm.
+            There is no charge to attend. The Altisima Winery event includes a
+            complimentary wine tasting; all events include light refreshments.
+            There is no obligation to retain our firm.
           </p>
         </div>
 
@@ -732,9 +881,10 @@
         <div class="faq-item">
           <h4>What happens after the event?</h4>
           <p>
-            Guests are invited to schedule a complimentary 30-minute
-            consultation with a DeCosimo Law attorney to discuss their specific
-            situation — completely at their discretion.
+            After the event, Deanna is available for a free chat on the spot.
+            If you'd like to go deeper, you can schedule a follow-up meeting
+            with Deanna to talk through your family's specific situation —
+            completely at your discretion.
           </p>
         </div>
       </div>
