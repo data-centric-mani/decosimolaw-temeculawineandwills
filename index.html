@@ -12,15 +12,15 @@
     />
     <style>
       :root {
-        --navy: #0b3b66;
-        --navy-dark: #072a4a;
+        --navy: #42372e;
+        --navy-dark: #2b231c;
         --gold: #c59a3b;
         --gold-light: rgba(197, 154, 59, 0.4);
         --cream: #fff7e6;
-        --bg-light: #f8fafc;
-        --dark: #0f172a;
-        --muted: #6b7280;
-        --light-border: rgba(11, 59, 102, 0.2);
+        --bg-light: #f5f0eb;
+        --dark: #1c1410;
+        --muted: #7a6e66;
+        --light-border: rgba(66, 55, 46, 0.2);
       }
 
       * {
@@ -43,7 +43,7 @@
           135deg,
           var(--navy) 0%,
           var(--navy-dark) 60%,
-          #040f1c 100%
+          #0e0a07 100%
         );
         color: #fff;
         text-align: center;
@@ -99,6 +99,14 @@
         color: rgba(255, 255, 255, 0.75);
         margin-bottom: 36px;
         letter-spacing: 0.04em;
+      }
+
+      .hero-tagline {
+        font-style: italic;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 32px;
+        letter-spacing: 0.02em;
       }
 
       .hero-cta {
@@ -200,7 +208,7 @@
       }
 
       .event-card:hover {
-        box-shadow: 0 8px 32px rgba(11, 59, 102, 0.15);
+        box-shadow: 0 8px 32px rgba(66, 55, 46, 0.18);
         transform: translateY(-3px);
       }
 
@@ -468,10 +476,31 @@
         color: var(--gold);
       }
 
+      /* ── Hero Portrait ── */
+      .hero-portrait {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        border: 3px solid var(--gold);
+        box-shadow:
+          0 0 0 6px rgba(197, 154, 59, 0.2),
+          0 12px 40px rgba(0, 0, 0, 0.4);
+        margin-bottom: 24px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       /* ── Responsive ── */
       @media (max-width: 600px) {
         .hero {
           padding: 64px 20px 56px;
+        }
+        .hero-portrait {
+          width: 110px;
+          height: 110px;
         }
         .events-grid {
           grid-template-columns: 1fr;
@@ -485,10 +514,18 @@
   <body>
     <!-- Hero -->
     <header class="hero">
+      <img
+        src="../Deanna DeCosimo-126.jpg"
+        alt="Deanna DeCosimo, Attorney at DeCosimo Law"
+        class="hero-portrait"
+      />
       <div class="hero-eyebrow">DeCosimo Law · Temecula Valley</div>
       <h1>Wine &amp; <span>Wills</span></h1>
       <p class="hero-subtitle">
         Estate planning made approachable — among the vines
+      </p>
+      <p class="hero-tagline">
+        You don't know what you don't know... come and learn!
       </p>
       <a href="#events" class="hero-cta">View Upcoming Events</a>
     </header>
