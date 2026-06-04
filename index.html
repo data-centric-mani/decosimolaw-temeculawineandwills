@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wine & Wills — DeCosimo Law | Temecula Valley</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0b3b66;
+        --navy-dark: #072a4a;
+        --gold: #c59a3b;
+        --gold-light: rgba(197, 154, 59, 0.4);
+        --cream: #fff7e6;
+        --bg-light: #f8fafc;
+        --dark: #0f172a;
+        --muted: #6b7280;
+        --light-border: rgba(11, 59, 102, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+        background-color: var(--cream);
+        color: var(--dark);
+        line-height: 1.7;
+      }
+
+      /* ── Hero ── */
+      .hero {
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--navy-dark) 60%,
+          #040f1c 100%
+        );
+        color: #fff;
+        text-align: center;
+        padding: 90px 24px 80px;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            ellipse at 20% 50%,
+            rgba(197, 154, 59, 0.15) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 80% 30%,
+            rgba(197, 154, 59, 0.1) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+      }
+
+      .hero-eyebrow {
+        display: inline-block;
+        font-family: arial, sans-serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        border: 1px solid var(--gold);
+        padding: 6px 18px;
+        border-radius: 2px;
+        margin-bottom: 28px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.4rem, 6vw, 4.2rem);
+        font-weight: 300;
+        letter-spacing: 0.03em;
+        margin-bottom: 10px;
+      }
+
+      .hero h1 span {
+        color: var(--gold);
+      }
+
+      .hero-subtitle {
+        font-family: arial, sans-serif;
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 36px;
+        letter-spacing: 0.04em;
+      }
+
+      .hero-cta {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--dark);
+        font-family: arial, sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 14px 36px;
+        border-radius: 2px;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+
+      .hero-cta:hover {
+        background: #fff;
+        color: var(--navy);
+      }
+
+      .divider-ornament {
+        text-align: center;
+        color: var(--gold);
+        font-size: 1.4rem;
+        letter-spacing: 0.5em;
+        margin: 48px 0;
+        opacity: 0.6;
+      }
+
+      /* ── About Strip ── */
+      .about-strip {
+        background: var(--navy);
+        color: #fff;
+        text-align: center;
+        padding: 40px 24px;
+      }
+
+      .about-strip p {
+        max-width: 720px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .about-strip strong {
+        color: var(--gold);
+      }
+
+      /* ── Section Wrappers ── */
+      section {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 72px 24px;
+      }
+
+      .section-label {
+        font-family: arial, sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 12px;
+      }
+
+      .section-heading {
+        font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+        font-weight: 300;
+        color: var(--navy);
+        margin-bottom: 18px;
+      }
+
+      .section-intro {
+        font-size: 1rem;
+        color: var(--muted);
+        max-width: 620px;
+        margin-bottom: 48px;
+      }
+
+      /* ── Event Cards ── */
+      .events-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 28px;
+      }
+
+      .event-card {
+        background: #fff;
+        border: 1px solid var(--light-border);
+        border-radius: 4px;
+        overflow: hidden;
+        transition:
+          box-shadow 0.25s,
+          transform 0.25s;
+      }
+
+      .event-card:hover {
+        box-shadow: 0 8px 32px rgba(11, 59, 102, 0.15);
+        transform: translateY(-3px);
+      }
+
+      .event-card-top {
+        background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+        color: #fff;
+        padding: 28px 24px 22px;
+        position: relative;
+      }
+
+      .event-date-badge {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--dark);
+        font-family: arial, sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 2px;
+        margin-bottom: 14px;
+      }
+
+      .event-card-top h3 {
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin-bottom: 6px;
+      }
+
+      .event-card-top .venue {
+        font-family: arial, sans-serif;
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.7);
+        letter-spacing: 0.05em;
+      }
+
+      .event-card-body {
+        padding: 22px 24px 28px;
+      }
+
+      .event-card-body p {
+        font-size: 0.93rem;
+        color: var(--muted);
+        margin-bottom: 20px;
+        line-height: 1.75;
+      }
+
+      .event-details {
+        list-style: none;
+        margin-bottom: 24px;
+      }
+
+      .event-details li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-family: arial, sans-serif;
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+
+      .event-details li::before {
+        content: "◆";
+        color: var(--gold);
+        font-size: 0.6rem;
+        margin-top: 4px;
+        flex-shrink: 0;
+      }
+
+      .btn-reserve {
+        display: inline-block;
+        background: var(--navy);
+        color: #fff;
+        font-family: arial, sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 11px 24px;
+        border-radius: 2px;
+        transition: background 0.2s;
+      }
+
+      .btn-reserve:hover {
+        background: var(--gold);
+        color: var(--dark);
+      }
+
+      /* ── What to Expect ── */
+      .expect-section {
+        background: #fff;
+        border-top: 1px solid var(--light-border);
+        border-bottom: 1px solid var(--light-border);
+      }
+
+      .expect-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 36px;
+        margin-top: 0;
+      }
+
+      .expect-item {
+        text-align: center;
+      }
+
+      .expect-icon {
+        font-size: 2.2rem;
+        margin-bottom: 14px;
+        display: block;
+      }
+
+      .expect-item h4 {
+        font-size: 1.05rem;
+        color: var(--navy);
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .expect-item p {
+        font-family: arial, sans-serif;
+        font-size: 0.85rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      /* ── Testimonial ── */
+      .testimonial-band {
+        background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+        color: #fff;
+        text-align: center;
+        padding: 72px 24px;
+      }
+
+      .testimonial-band blockquote {
+        max-width: 680px;
+        margin: 0 auto 24px;
+        font-size: 1.2rem;
+        font-style: italic;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .testimonial-band cite {
+        font-family: arial, sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      /* ── FAQ ── */
+      .faq-list {
+        max-width: 720px;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid var(--light-border);
+        padding: 22px 0;
+      }
+
+      .faq-item:first-child {
+        border-top: 1px solid var(--light-border);
+      }
+
+      .faq-item h4 {
+        font-size: 1rem;
+        color: var(--navy);
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .faq-item p {
+        font-family: arial, sans-serif;
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      /* ── Contact / CTA ── */
+      .contact-section {
+        background: var(--bg-light);
+        text-align: center;
+      }
+
+      .contact-section .section-heading {
+        margin-bottom: 12px;
+      }
+
+      .contact-section p {
+        font-family: arial, sans-serif;
+        font-size: 0.95rem;
+        color: var(--muted);
+        max-width: 520px;
+        margin: 0 auto 36px;
+      }
+
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .contact-links a {
+        font-family: arial, sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 13px 30px;
+        border-radius: 2px;
+        transition: 0.2s;
+      }
+
+      .btn-primary {
+        background: var(--navy);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background: var(--navy-dark);
+      }
+
+      .btn-outline {
+        border: 2px solid var(--navy);
+        color: var(--navy);
+        background: transparent;
+      }
+
+      .btn-outline:hover {
+        background: var(--navy);
+        color: #fff;
+      }
+
+      /* ── Footer ── */
+      footer {
+        background: var(--dark);
+        color: rgba(255, 255, 255, 0.55);
+        text-align: center;
+        padding: 36px 24px;
+        font-family: arial, sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.05em;
+        line-height: 2;
+      }
+
+      footer strong {
+        color: var(--gold);
+        display: block;
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+      }
+
+      footer a {
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: var(--gold);
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 600px) {
+        .hero {
+          padding: 64px 20px 56px;
+        }
+        .events-grid {
+          grid-template-columns: 1fr;
+        }
+        .expect-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-eyebrow">DeCosimo Law · Temecula Valley</div>
+      <h1>Wine &amp; <span>Wills</span></h1>
+      <p class="hero-subtitle">
+        Estate planning made approachable — among the vines
+      </p>
+      <a href="#events" class="hero-cta">View Upcoming Events</a>
+    </header>
+
+    <!-- About Strip -->
+    <div class="about-strip">
+      <p>
+        Join <strong>DeCosimo Law</strong> for an evening of fine Temecula wine
+        and straight-talk estate planning. These intimate gatherings are
+        designed to help you protect your family and assets — no stuffy offices,
+        just good wine, great conversation, and
+        <strong>actionable legal guidance</strong>.
+      </p>
+    </div>
+
+    <!-- Upcoming Events -->
+    <section id="events">
+      <p class="section-label">On the Calendar</p>
+      <h2 class="section-heading">Upcoming Wine &amp; Wills Events</h2>
+      <p class="section-intro">
+        Seats are limited to keep each event personal. Reserve yours early.
+      </p>
+
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-card-top">
+            <span class="event-date-badge">July 12, 2026 · 5:00 PM</span>
+            <h3>Summer Estate Planning Evening</h3>
+            <span class="venue">Leonesse Cellars — Temecula, CA</span>
+          </div>
+          <div class="event-card-body">
+            <p>
+              Relax on the terrace with a curated flight of Leonesse wines while
+              our attorneys walk you through the essentials of wills, trusts,
+              and beneficiary designations.
+            </p>
+            <ul class="event-details">
+              <li>Complimentary wine flight included</li>
+              <li>Live Q&amp;A with DeCosimo Law attorneys</li>
+              <li>Workbook &amp; estate planning checklist</li>
+              <li>Limited to 20 guests</li>
+            </ul>
+            <a
+              href="mailto:support@decosimolaw.com?subject=Reserve%20-%20July%2012%20Wine%20%26%20Wills"
+              class="btn-reserve"
+              >Reserve My Seat</a
+            >
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-card-top">
+            <span class="event-date-badge">August 23, 2026 · 5:30 PM</span>
+            <h3>Harvest Season Wills Workshop</h3>
+            <span class="venue">Ponte Winery — Temecula, CA</span>
+          </div>
+          <div class="event-card-body">
+            <p>
+              Celebrate harvest season while gaining clarity on protecting your
+              loved ones. This session focuses on living trusts and pour-over
+              wills for California families.
+            </p>
+            <ul class="event-details">
+              <li>Paired appetizers &amp; wine tasting</li>
+              <li>Focus: Living Trusts &amp; Probate Avoidance</li>
+              <li>Spouse / partner welcome</li>
+              <li>Limited to 20 guests</li>
+            </ul>
+            <a
+              href="mailto:support@decosimolaw.com?subject=Reserve%20-%20August%2023%20Wine%20%26%20Wills"
+              class="btn-reserve"
+              >Reserve My Seat</a
+            >
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-card-top">
+            <span class="event-date-badge">September 19, 2026 · 5:00 PM</span>
+            <h3>Fall Family Wealth Evening</h3>
+            <span class="venue">South Coast Winery — Temecula, CA</span>
+          </div>
+          <div class="event-card-body">
+            <p>
+              An evening dedicated to multigenerational wealth planning — from
+              guardian designations for young families to advanced healthcare
+              directives for every stage of life.
+            </p>
+            <ul class="event-details">
+              <li>Estate wine tasting &amp; light bites</li>
+              <li>Focus: Guardianship &amp; Healthcare Directives</li>
+              <li>Take-home action plan included</li>
+              <li>Limited to 20 guests</li>
+            </ul>
+            <a
+              href="mailto:support@decosimolaw.com?subject=Reserve%20-%20September%2019%20Wine%20%26%20Wills"
+              class="btn-reserve"
+              >Reserve My Seat</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What to Expect -->
+    <div class="expect-section">
+      <section>
+        <p class="section-label">The Experience</p>
+        <h2 class="section-heading">What to Expect</h2>
+        <p class="section-intro" style="margin-bottom: 40px">
+          Every Wine &amp; Wills event is relaxed, informative, and completely
+          pressure-free.
+        </p>
+
+        <div class="expect-grid">
+          <div class="expect-item">
+            <span class="expect-icon">🍷</span>
+            <h4>Curated Wine Tasting</h4>
+            <p>
+              Enjoy a hand-selected flight from one of Temecula Valley's premier
+              wineries, included with your reservation.
+            </p>
+          </div>
+          <div class="expect-item">
+            <span class="expect-icon">⚖️</span>
+            <h4>Expert Legal Guidance</h4>
+            <p>
+              DeCosimo Law attorneys present estate planning fundamentals in
+              plain language — no legalese, no sales pitch.
+            </p>
+          </div>
+          <div class="expect-item">
+            <span class="expect-icon">💬</span>
+            <h4>Open Q&amp;A</h4>
+            <p>
+              Ask the questions you've always had about wills, trusts, and
+              protecting your family — in a welcoming, conversational setting.
+            </p>
+          </div>
+          <div class="expect-item">
+            <span class="expect-icon">📋</span>
+            <h4>Take-Home Resources</h4>
+            <p>
+              Leave with a personalized estate planning checklist and optional
+              complimentary 30-minute follow-up consultation.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="testimonial-band">
+      <blockquote>
+        "We put off estate planning for years. Wine &amp; Wills made it feel
+        completely approachable — we finally got our trust done within two weeks
+        of attending. Worth every minute."
+      </blockquote>
+      <cite>— Michael &amp; Sarah R., Temecula</cite>
+    </div>
+
+    <!-- FAQ -->
+    <section>
+      <p class="section-label">Common Questions</p>
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <h4>Is there a cost to attend?</h4>
+          <p>
+            There is no charge to attend. Complimentary wine and light
+            refreshments are provided as our guests. There is no obligation to
+            retain our firm.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h4>Can I bring my spouse or partner?</h4>
+          <p>
+            Absolutely — we encourage it. Estate planning decisions affect the
+            whole household, and couples often find the conversation most
+            productive together.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h4>Do I need to have any documents prepared beforehand?</h4>
+          <p>
+            No preparation is required. Just bring yourself and any questions
+            you have. We'll provide a brief pre-event questionnaire if you'd
+            like to think ahead.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h4>What topics are covered?</h4>
+          <p>
+            Each event has a featured topic (noted above), but all sessions
+            cover core estate planning: wills, revocable living trusts, powers
+            of attorney, healthcare directives, and beneficiary designations.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h4>What happens after the event?</h4>
+          <p>
+            Guests are invited to schedule a complimentary 30-minute
+            consultation with a DeCosimo Law attorney to discuss their specific
+            situation — completely at their discretion.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <div class="contact-section">
+      <section>
+        <p class="section-label">Get In Touch</p>
+        <h2 class="section-heading">Ready to Protect Your Family?</h2>
+        <p>
+          Reserve your seat at an upcoming event or reach out to DeCosimo Law
+          directly. We're here to help.
+        </p>
+        <div class="contact-links">
+          <a
+            href="mailto:support@decosimolaw.com?subject=Wine%20%26%20Wills%20Reservation"
+            class="btn-primary contact-links"
+            >Email Us to Reserve</a
+          >
+          <a href="tel:+1-000-000-0000" class="btn-outline contact-links"
+            >Call DeCosimo Law</a
+          >
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <strong>DeCosimo Law</strong>
+      Estate Planning &amp; Elder Law · Serving Temecula Valley &amp; Southern
+      California<br />
+      <a href="mailto:support@decosimolaw.com">support@decosimolaw.com</a>
+      &nbsp;·&nbsp;
+      <a href="#">decosimolaw.com</a>
+      <br /><br />
+      &copy; 2026 DeCosimo Law. This event is for informational purposes only
+      and does not constitute legal advice or create an attorney-client
+      relationship.
+    </footer>
+  </body>
+</html>
